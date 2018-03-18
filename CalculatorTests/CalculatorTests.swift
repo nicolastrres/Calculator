@@ -29,12 +29,12 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(controller!.concatenate(initialText: "1", character: "0"), "10")
     }
     
-    func testShouldConcatenateComma() {
-        XCTAssertEqual(controller!.concatenateComma(initialText: "1"), "1,")
+    func testShouldConcatenatePoint() {
+        XCTAssertEqual(controller!.concatenatePoint(initialText: "1"), "1.")
     }
     
-    func testShouldNotConcatenateMoreThanOneComma() {
-        XCTAssertEqual(controller!.concatenateComma(initialText: "1,1"), "1,1")
+    func testShouldNotConcatenateMoreThanOnePoint() {
+        XCTAssertEqual(controller!.concatenatePoint(initialText: "1.1"), "1.1")
     }
 
     func testShouldConcatenateMinusWhenTextIsPositive() {

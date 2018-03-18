@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         return initialText + character
     }
     
-    func concatenateComma(initialText: String) -> String {
-        if !initialText.contains(",") {
-            return initialText + ","
+    func concatenatePoint(initialText: String) -> String {
+        if !initialText.contains(".") {
+            return initialText + "."
         }
         return initialText
     }
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnComma(_ sender: Any) {
-        lblResult.text = concatenateComma(initialText: lblResult.text!)
+        lblResult.text = concatenatePoint(initialText: lblResult.text!)
     }
     
     @IBAction func btn1(_ sender: Any) {
