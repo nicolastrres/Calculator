@@ -1,0 +1,5 @@
+language: swift
+xcode_project: Calculator.xcodeproj
+xcode_scheme: CalculatorTests
+
+
