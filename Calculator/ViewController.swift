@@ -7,10 +7,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    var firstNumber:Double?
+    var currentOperator:String?
+
     @IBOutlet weak var lblResult: UILabel!
     
     @IBAction func AC(_ sender: Any) {
         lblResult.text = "0"
+        firstNumber = 0
     }
 
     func concatenate(initialText: String, character: String) -> String {
@@ -94,13 +98,46 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnDivision(_ sender: Any) {
+        firstNumber = Double(lblResult.text!)
+        currentOperator = "/"
+        lblResult.text = "0"
     }
+
+    func calculateOperation(first: Double, second: Double, op: String) -> Double {
+        switch(op) {
+        case "/":
+            return first / second
+        case "+":
+            return first + second
+        case "-":
+            return first - second
+        case "*":
+            return first * second
+        default:
+            return first + second
+        }
+    }
+
+    @IBAction func btnEqual(_ sender: Any) {
+        if currentOperator != nil {
+            lblResult.text = String(calculateOperation(first: firstNumber!, second: Double(lblResult.text!)!, op: currentOperator!))
+        }
+    }
+
     @IBAction func btnMultiplier(_ sender: Any) {
+        firstNumber = Double(lblResult.text!)
+        currentOperator = "*"
+        lblResult.text = "0"
     }
     @IBAction func btnMinus(_ sender: Any) {
+        firstNumber = Double(lblResult.text!)
+        currentOperator = "-"
+        lblResult.text = "0"
     }
     @IBAction func btnPlus(_ sender: Any) {
+        firstNumber = Double(lblResult.text!)
+        currentOperator = "+"
+        lblResult.text = "0"
     }
-    @IBOutlet weak var btnEqual: UIButton!
 }
 

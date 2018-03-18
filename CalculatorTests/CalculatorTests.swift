@@ -52,4 +52,21 @@ class CalculatorTests: XCTestCase {
     func testShouldReturnPercent() {
         XCTAssertEqual(controller!.percent(number:150), 1.5)
     }
+
+    func testShouldCalculateSum() {
+        XCTAssertEqual(controller!.calculateOperation(first: 2.5, second: 1.2, op: "+"), 3.7)
+    }
+
+    func testShouldCalculateDifference() {
+        XCTAssertEqual(controller!.calculateOperation(first: 2.5, second: 1.2, op: "-"), 1.3)
+    }
+
+    func testShouldCalculateMultiplication() {
+        XCTAssertEqual(controller!.calculateOperation(first: 5.5, second: 2, op: "*"), 11.0)
+    }
+
+    func testShouldCalculateDivision() {
+        XCTAssertEqual(controller!.calculateOperation(first: 10, second: 2, op: "/"), 5.0)
+    }
+
 }
