@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBAction func AC(_ sender: Any) {
         lblResult.text = "0"
     }
+
     func concatenate(initialText: String, character: String) -> String {
         if initialText == "0" {
             return character
@@ -26,6 +27,16 @@ class ViewController: UIViewController {
         return initialText
     }
     
+    func concatenateSign(initialText: String) -> String {
+        if initialText == "0" {
+            return initialText
+        }
+        if initialText[initialText.startIndex] == "-" {
+            return String(initialText.dropFirst())
+        }
+        return "-" + initialText
+    }
+
     @IBAction func btn0(_ sender: Any) {
         lblResult.text = concatenate(initialText: lblResult.text!, character: "0")
     }
@@ -71,6 +82,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnPlusMinus(_ sender: Any) {
+        lblResult.text = concatenateSign(initialText: lblResult.text!)
     }
     @IBAction func btnPercentage(_ sender: Any) {
     }

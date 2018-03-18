@@ -36,4 +36,17 @@ class CalculatorTests: XCTestCase {
     func testShouldNotConcatenateMoreThanOneComma() {
         XCTAssertEqual(controller!.concatenateComma(initialText: "1,1"), "1,1")
     }
+
+    func testShouldConcatenateMinusWhenTextIsPositive() {
+        XCTAssertEqual(controller!.concatenateSign(initialText: "1"), "-1")
+    }
+
+    func testShouldRemoveMinusWhenTextIsNegative() {
+        XCTAssertEqual(controller!.concatenateSign(initialText: "-1"), "1")
+    }
+
+    func testShouldNotConcatenateMinusWhenIsZero() {
+        XCTAssertEqual(controller!.concatenateSign(initialText: "0"), "0")
+    }
+
 }
