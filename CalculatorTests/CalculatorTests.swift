@@ -49,4 +49,7 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(controller!.concatenateSign(initialText: "0"), "0")
     }
 
+    func testShouldReturnPercent() {
+        XCTAssertEqual(controller!.percent(number:150), 1.5)
+    }
 }

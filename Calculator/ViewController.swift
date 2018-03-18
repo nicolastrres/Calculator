@@ -37,6 +37,10 @@ class ViewController: UIViewController {
         return "-" + initialText
     }
 
+    func percent(number: Double) -> Double {
+        return number / 100
+    }
+
     @IBAction func btn0(_ sender: Any) {
         lblResult.text = concatenate(initialText: lblResult.text!, character: "0")
     }
@@ -84,8 +88,11 @@ class ViewController: UIViewController {
     @IBAction func btnPlusMinus(_ sender: Any) {
         lblResult.text = concatenateSign(initialText: lblResult.text!)
     }
-    @IBAction func btnPercentage(_ sender: Any) {
+
+    @IBAction func btnPercent(_ sender: Any) {
+        lblResult.text = String(percent(number: Double(lblResult.text!)!))
     }
+
     @IBAction func btnDivision(_ sender: Any) {
     }
     @IBAction func btnMultiplier(_ sender: Any) {
