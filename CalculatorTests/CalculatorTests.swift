@@ -18,17 +18,21 @@ class CalculatorTests: XCTestCase {
     }
     
     func testShouldRemoveInitialZero() {
-        XCTAssertEqual(controller!.concatenate(initialText: "0", character: "1"), "1")
+        XCTAssertEqual(controller!.concatenate(initialText: "0", character: "1", clean: false), "1")
     }
     
     func testShouldRetainOldValues() {
-        XCTAssertEqual(controller!.concatenate(initialText: "1203", character: "4"), "12034")
+        XCTAssertEqual(controller!.concatenate(initialText: "1203", character: "4", clean: false), "12034")
     }
     
     func testShouldConcatenateZero() {
-        XCTAssertEqual(controller!.concatenate(initialText: "1", character: "0"), "10")
+        XCTAssertEqual(controller!.concatenate(initialText: "1", character: "0", clean: false), "10")
     }
-    
+
+    func testShouldNotConcatenateIfCleanIsTrue() {
+        XCTAssertEqual(controller!.concatenate(initialText: "111", character: "2", clean: true), "2")
+    }
+
     func testShouldConcatenatePoint() {
         XCTAssertEqual(controller!.concatenatePoint(initialText: "1"), "1.")
     }
